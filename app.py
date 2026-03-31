@@ -39,7 +39,7 @@ def sanitize_name(name):
 def get_scores():
     conn = get_db()
     cur = conn.cursor(cursor_factory=RealDictCursor)
-    cur.execute("SELECT name, score, level, lines, ts FROM lb_scores ORDER BY score DESC LIMIT 100")
+    cur.execute("SELECT name, score, level, lines, device_id, ts FROM lb_scores ORDER BY score DESC LIMIT 100")
     rows = cur.fetchall()
     cur.close()
     conn.close()
